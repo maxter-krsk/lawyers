@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { montserrat } from "@/app/components/ui/fonts";
+import { geologica } from "@/app/components/ui/fonts";
 import "./globals.css";
 import Header from "@/app/components/shared/Header/Header";
 import Footer from "@/app/components/shared/Footer/Footer";
@@ -70,7 +70,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body
-        className={`${montserrat.className} flex min-h-screen flex-col overflow-x-hidden antialiased`}
+        className={`${geologica.className} text-main flex min-h-screen flex-col overflow-x-hidden antialiased`}
       >
         <Header />
         <main className="flex-1">
