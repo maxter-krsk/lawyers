@@ -39,7 +39,7 @@ export default function Header({ variant }: HeaderProps) {
   }
 
   return (
-    <header className="top-0 right-0 h-screen bg-white">
+    <header className="sticky top-0 right-0 h-screen bg-white">
       <div className="container flex h-full flex-col items-center py-20 md:items-start">
         <nav className="hidden md:block">
           <ul className="text-18 flex flex-col space-y-10 uppercase">
