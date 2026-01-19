@@ -271,6 +271,17 @@ html body[data-scroll-locked] {
   margin-right: 0 !important;
 }
 
+.hover-link {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.25rem;
+  transition: text-decoration-color 0.25s ease;
+}
+
+.hover-link:hover {
+  text-decoration-color: currentColor;
+}
+
 @media (max-width: 768px) {
   .container {
     padding-left: 1.5rem;
@@ -282,6 +293,13 @@ html body[data-scroll-locked] {
   .container {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+}
+
+@media(max-width: 576px) {
+  .container {
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
   }
 }
 
