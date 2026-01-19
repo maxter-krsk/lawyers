@@ -70,16 +70,23 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body
-        className={`${geologica.className} text-main flex min-h-screen flex-col overflow-x-hidden antialiased`}
+        className={`${geologica.className} text-main min-h-screen overflow-x-hidden antialiased`}
       >
-        <Header />
-        <main className="flex-1">
-          {children}
-          <div className="container">
-            <div className="grid grid-cols-3 grid-rows-2 gap-10"></div>
-          </div>
-        </main>
-        <Footer />
+        <div className="sm:hidden block">
+          <Header variant="top" />
+        </div>
+
+        <div className="flex min-h-screen w-full">
+          <main className="flex min-h-screen flex-1 flex-col">
+            <div className="flex-1">{children}</div>
+            <Footer />
+          </main>
+
+          <aside className="sm:block hidden shrink-0">
+            <Header variant="side" />
+          </aside>
+        </div>
+
         <CookiesBanner />
         <ScrollTop />
       </body>
