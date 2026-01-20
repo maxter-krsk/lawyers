@@ -4,6 +4,7 @@ import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
+import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { teamMembers } from "./team.data";
 
@@ -75,90 +76,99 @@ export function TeamSlider() {
       </div>
 
       <div className="flex h-full flex-col gap-16">
-        <div className="min-h-0 flex-1 overflow-auto">
-          <div key={selectedMember.id} className="space-y-16">
-            {selectedMember?.experience && (
-              <div className="space-y-14">
-                <div className="font-light uppercase">{selectedMember.experience}</div>
-              </div>
-            )}
-
-            {selectedMember?.role && (
-              <div className="space-y-14">
-                <div className="text-18 font-extralight">{selectedMember.role}</div>
-              </div>
-            )}
-
-            {!!selectedMember?.education?.length && (
-              <div className="space-y-14">
-                <div className="text-18 font-light uppercase">Обучение</div>
-                <ul className="custom-list space-y-10">
-                  {selectedMember.education.map((item, idx) => (
-                    <li key={`${selectedMember.id}-edu-${idx}`} className="flex font-extralight">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {selectedMember?.descr && (
-              <div className="space-y-14">
-                <p className="text-18 font-light">{selectedMember.descr}</p>
-              </div>
-            )}
-
-            {!!selectedMember?.awards?.length && (
-              <div className="space-y-14">
-                <div className="font-light uppercase">Награды</div>
-                <ul className="custom-list space-y-8 font-extralight">
-                  {selectedMember.awards.map((item, idx) => (
-                    <li key={`${selectedMember.id}-award-${idx}`} className="flex gap-8">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {(selectedMember?.email || selectedMember?.phone) && (
-              <div className="space-y-14">
-                <div className="space-y-10 font-extralight">
-                  {selectedMember?.email && (
-                    <Link
-                      className="hover-link flex items-center gap-10"
-                      href={`mailto:${selectedMember.email}`}
-                    >
-                      <Image
-                        className="h-24 w-24"
-                        src="/icons/ui/email-dark.svg"
-                        alt="Email"
-                        width="24"
-                        height="24"
-                      />
-                      {selectedMember.email}
-                    </Link>
-                  )}
-
-                  {selectedMember?.phone && (
-                    <Link
-                      className="hover-link flex items-center gap-10"
-                      href={`tel:${selectedMember.phone.replace(/\s/g, "")}`}
-                    >
-                      <Image
-                        className="h-24 w-24"
-                        src="/icons/ui/phone-dark.svg"
-                        alt=""
-                        width="24"
-                        height="24"
-                      />
-                      {selectedMember.phone}
-                    </Link>
-                  )}
+        <div className="min-h-0 flex-1 overflow-hidden">
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={selectedMember.id}
+              initial={{ opacity: 0, x: 200 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -200 }}
+              transition={{ duration: 0.24, ease: "easeOut" }}
+              className="space-y-16"
+            >
+              {selectedMember?.experience && (
+                <div className="space-y-14">
+                  <div className="font-light uppercase">{selectedMember.experience}</div>
                 </div>
-              </div>
-            )}
-          </div>
+              )}
+
+              {selectedMember?.role && (
+                <div className="space-y-14">
+                  <div className="text-18 font-extralight">{selectedMember.role}</div>
+                </div>
+              )}
+
+              {!!selectedMember?.education?.length && (
+                <div className="space-y-14">
+                  <div className="text-18 font-light uppercase">Обучение</div>
+                  <ul className="custom-list space-y-8">
+                    {selectedMember.education.map((item, idx) => (
+                      <li key={`${selectedMember.id}-edu-${idx}`} className="flex font-extralight">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {selectedMember?.descr && (
+                <div className="space-y-14">
+                  <p className="text-18 font-light">{selectedMember.descr}</p>
+                </div>
+              )}
+
+              {!!selectedMember?.awards?.length && (
+                <div className="space-y-14">
+                  <div className="font-light uppercase">Награды</div>
+                  <ul className="custom-list space-y-8 font-extralight">
+                    {selectedMember.awards.map((item, idx) => (
+                      <li key={`${selectedMember.id}-award-${idx}`} className="flex gap-8">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {(selectedMember?.email || selectedMember?.phone) && (
+                <div className="space-y-14">
+                  <div className="space-y-8 font-extralight">
+                    {selectedMember?.email && (
+                      <Link
+                        className="hover-link flex items-center gap-10"
+                        href={`mailto:${selectedMember.email}`}
+                      >
+                        <Image
+                          className="h-24 w-24"
+                          src="/icons/ui/email-dark.svg"
+                          alt="Email"
+                          width="24"
+                          height="24"
+                        />
+                        {selectedMember.email}
+                      </Link>
+                    )}
+
+                    {selectedMember?.phone && (
+                      <Link
+                        className="hover-link flex items-center gap-10"
+                        href={`tel:${selectedMember.phone.replace(/\s/g, "")}`}
+                      >
+                        <Image
+                          className="h-24 w-24"
+                          src="/icons/ui/phone-dark.svg"
+                          alt=""
+                          width="24"
+                          height="24"
+                        />
+                        {selectedMember.phone}
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              )}
+            </motion.div>
+          </AnimatePresence>
         </div>
 
         {/* THUMBS (simple fade) */}
