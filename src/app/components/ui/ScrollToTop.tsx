@@ -28,7 +28,7 @@ export default function ScrollTop() {
           initial={{
             opacity: 0,
             scale: 0,
-            backgroundColor: '#000000',
+            backgroundColor: '#3C3C3B',
             color: '#fff',
             boxShadow: '0px 4px 12px rgba(20, 43, 35, 0.25)',
           }}
@@ -39,8 +39,8 @@ export default function ScrollTop() {
           }}
           exit={{ opacity: 0, scale: 0 }}
           whileHover={{
-            backgroundColor: '#fff',
-            color: '#000000',
+            backgroundColor: '#EC6421',
+            color: '#fff',
             boxShadow: '0px 0px 20px rgba(149, 186, 168, 0.2)',
           }}
           transition={{
@@ -50,7 +50,7 @@ export default function ScrollTop() {
             mass: 0.5,
           }}
           onClick={scrollToTop}
-          className="fixed right-3 bottom-3 flex h-[2.68rem] w-[2.68rem] cursor-pointer items-center justify-center rounded-full hover:bg-[#142B23] hover:text-[#95BAA8]"
+          className="fixed right-3 bottom-3 flex h-[2.68rem] w-[2.68rem] cursor-pointer items-center justify-center rounded-full hover:bg-orange hover:text-white"
           aria-label="Прокрутить вверх"
         >
           <svg
