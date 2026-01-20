@@ -178,12 +178,13 @@ export function TeamSlider() {
                         "rounded-16 overflow-hidden border transition"
                       )}
                     >
-                      <div className="relative aspect-[4/3] w-full">
+                      <div className="relative h-[15rem] w-full">
                         <Image
                           src={member.photo}
                           alt=""
                           fill
                           className="object-cover"
+                          style={{ objectPosition: member.photoPosition ?? "50% 50%" }}
                           sizes="(max-width: 1024px) 50vw, 240px"
                         />
                       </div>

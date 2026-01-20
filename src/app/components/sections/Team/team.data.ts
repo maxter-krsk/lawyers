@@ -10,6 +10,7 @@ export type TeamMember = {
   email?: string;
   phone?: string;
   descr?: string;
+  photoPosition?: string;
 };
 
 export const teamMembers: TeamMember[] = [
@@ -30,6 +31,7 @@ export const teamMembers: TeamMember[] = [
     ],
     email: "2941200@gmail.com",
     phone: "+7 (902) 924-12-00",
+    photoPosition: "50% 20%",
   },
   {
     id: "2",
@@ -48,6 +50,7 @@ export const teamMembers: TeamMember[] = [
     ],
     email: "stepanova.advokat@gmail.com",
     phone: "+7 (913) 560-45-03",
+    photoPosition: "50% 20%",
   },
   {
     id: "3",
