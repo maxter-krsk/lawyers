@@ -76,15 +76,18 @@ export default function RootLayout({
           <Header variant="top" />
         </div>
 
-        <div className="flex min-h-screen w-full">
-          <main className="flex min-h-screen flex-1 flex-col">
-            <div className="flex-1">{children}</div>
-            <Footer />
-          </main>
+        <div className="flex min-h-screen w-full flex-col">
+          <div className="flex w-full flex-1">
+            <main className="flex flex-1 flex-col">
+              <div className="flex-1">{children}</div>
+            </main>
 
-          <aside className="sm:block hidden shrink-0">
-            <Header variant="side" />
-          </aside>
+            <aside className="sm:block hidden shrink-0">
+              <Header variant="side" />
+            </aside>
+          </div>
+
+          <Footer />
         </div>
 
         <CookiesBanner />
