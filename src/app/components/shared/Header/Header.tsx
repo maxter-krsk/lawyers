@@ -16,7 +16,7 @@ type HeaderProps = {
 export default function Header({ variant }: HeaderProps) {
   if (variant === "top") {
     return (
-      <header className="bg-white">
+      <header className="bg-softWhite">
         <div className="relative container flex min-h-16 items-center justify-end py-14">
           {/* Центр */}
           <Link href="/" aria-label="На главную" className="absolute left-1/2 -translate-x-1/2">
@@ -39,7 +39,7 @@ export default function Header({ variant }: HeaderProps) {
   }
 
   return (
-    <header className="sticky top-0 right-0 h-screen bg-white">
+    <header className="sticky top-0 right-0 h-screen bg-softWhite">
       <div className="container flex h-full flex-col items-center py-20 md:items-start">
         <nav className="hidden md:block">
           <ul className="text-18 flex flex-col space-y-10 uppercase">

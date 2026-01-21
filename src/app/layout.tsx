@@ -68,7 +68,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
+    <html className="bg-softWhite" lang="ru">
       <body
         className={`${geologica.className} text-main min-h-screen overflow-x-hidden antialiased`}
       >
