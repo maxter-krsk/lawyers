@@ -96,9 +96,10 @@ export function TeamSlider() {
                     type="button"
                     onClick={() => api?.scrollNext()}
                     aria-label="Следующий"
-                    className="hidden w-44 items-center justify-center bg-orange-500 transition hover:bg-orange-400 sm:flex xl:hidden"
+                    className="bg-orange hover:bg-green hidden h-auto w-44 cursor-pointer items-center justify-center transition-colors duration-300 sm:flex"
                   >
                     <Image
+                      className="h-26 w-26"
                       src="/icons/ui/slider-arrow.svg"
                       alt="Следующий слайд"
                       width="26"
@@ -187,7 +188,7 @@ export function TeamSlider() {
                 </div>
               )}
 
-              <div className="grid grid-cols-[1fr_auto] items-end gap-10 sm:hidden">
+              <div className="grid grid-cols-[1fr_auto] items-end gap-10">
                 <div className="space-y-10 font-extralight lg:space-y-8">
                   {selectedMember?.email && (
                     <Link
@@ -226,7 +227,7 @@ export function TeamSlider() {
                   type="button"
                   onClick={() => api?.scrollNext()}
                   aria-label="Следующий"
-                  className="xs:w-44 bg-orange hover:bg-orange flex h-58 w-30 items-center justify-center transition"
+                  className="xs:w-44 sm:hidden bg-orange hover:bg-orange flex h-58 w-30 items-center justify-center transition"
                 >
                   <Image
                     className="xs:w-26 x:h-26 h-20 w-20"
