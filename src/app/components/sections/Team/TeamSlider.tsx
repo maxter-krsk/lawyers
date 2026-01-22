@@ -267,7 +267,7 @@ export function TeamSlider() {
                           src={teamMembers[nextIdx].photo}
                           alt=""
                           sizes="(max-width: 1024px) 50vw, 240px"
-                          className="object-cover"
+                          className="cursor-pointer object-cover"
                           objectPosition={teamMembers[nextIdx].photoPosition ?? "50% 50%"}
                         />
                       </motion.button>
@@ -297,7 +297,7 @@ export function TeamSlider() {
                           src={teamMembers[prevIdx].photo}
                           alt=""
                           fill
-                          className="object-cover"
+                          className="cursor-pointer object-cover"
                           style={{
                             objectPosition: teamMembers[prevIdx].photoPosition ?? "50% 50%",
                           }}
