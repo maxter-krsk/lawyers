@@ -10,8 +10,8 @@ type BurgerProps = {
 const nav: [string, string][] = [
   ["О компании", "/#about"],
   ["Команда", "/#team"],
-  ["Преимущества", "/#features"],
   ["Практики", "/#practices"],
+  ["Контакты", "/#contacts"],
 ];
 
 export default function Burger({ className }: BurgerProps) {

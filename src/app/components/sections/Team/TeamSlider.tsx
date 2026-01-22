@@ -3,8 +3,9 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import ImageWithSkeleton from "@/lib/ui/ImageWithSkeleton";
+import { AnimatePresence, motion } from "framer-motion";
 import { teamMembers } from "./team.data";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/lib/ui/carousel";
 
@@ -31,13 +32,17 @@ export function TeamSlider() {
   }, [api, onSelect]);
 
   const scrollTo = React.useCallback((index: number) => api?.scrollTo(index), [api]);
+  const total = teamMembers.length;
 
-  const thumbs = React.useMemo(() => {
-    const total = teamMembers.length;
-    if (total <= 1) return [];
-    if (total === 2) return [(selectedIndex + 1) % total];
-    return [(selectedIndex + 1) % total, (selectedIndex + 2) % total];
-  }, [selectedIndex]);
+  const prevIdx = React.useMemo(() => {
+    if (total <= 1) return null;
+    return (selectedIndex - 1 + total) % total;
+  }, [selectedIndex, total]);
+
+  const nextIdx = React.useMemo(() => {
+    if (total <= 1) return null;
+    return (selectedIndex + 1) % total;
+  }, [selectedIndex, total]);
 
   const dots = React.useMemo(() => {
     if (!api) return [];
@@ -71,13 +76,12 @@ export function TeamSlider() {
             >
               <div className="space-y-10 lg:space-y-20">
                 <div className="rounded-6 sm:rounded-12 relative aspect-[8/9] overflow-hidden">
-                  <Image
+                  <ImageWithSkeleton
                     src={member.photo}
                     alt={member.name}
-                    fill
-                    className="object-cover object-[50%_20%]"
                     priority={idx === 0}
                     sizes="(max-width: 1024px) 100vw, 55vw"
+                    className="object-cover object-[50%_20%]"
                   />
                 </div>
 
@@ -92,9 +96,10 @@ export function TeamSlider() {
                     type="button"
                     onClick={() => api?.scrollNext()}
                     aria-label="Следующий"
-                    className="hidden w-44 items-center justify-center bg-orange-500 transition hover:bg-orange-400 sm:flex xl:hidden"
+                    className="bg-orange hover:bg-green hidden h-auto w-44 cursor-pointer items-center justify-center transition-colors duration-300 sm:flex"
                   >
                     <Image
+                      className="h-26 w-26"
                       src="/icons/ui/slider-arrow.svg"
                       alt="Следующий слайд"
                       width="26"
@@ -123,7 +128,7 @@ export function TeamSlider() {
       </Carousel>
 
       <div className="desk:max-h-auto flex h-full min-h-full flex-col gap-16 md:max-h-[26rem]">
-        <div className="[&::-webkit-scrollbar-thumb]:rounded-12 [&::-webkit-scrollbar-thumb]:bg-main/30 hover:[&::-webkit-scrollbar-thumb]:bg-main/45 min-h-0 flex-1 overflow-x-hidden overflow-y-auto lg:[scrollbar-gutter:stable] [&::-webkit-scrollbar]:w-10 [&::-webkit-scrollbar-track]:bg-transparent">
+        <div className="[&::-webkit-scrollbar-thumb]:rounded-12 [&::-webkit-scrollbar-thumb]:bg-green hover:[&::-webkit-scrollbar-thumb]:bg-main/45 min-h-0 flex-1 overflow-x-hidden overflow-y-auto lg:[scrollbar-gutter:stable] [&::-webkit-scrollbar]:w-10 [&::-webkit-scrollbar-track]:bg-transparent">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={selectedMember.id}
@@ -183,7 +188,7 @@ export function TeamSlider() {
                 </div>
               )}
 
-              <div className="grid grid-cols-[1fr_auto] items-end gap-10 sm:hidden">
+              <div className="grid grid-cols-[1fr_auto] items-end gap-10">
                 <div className="space-y-10 font-extralight lg:space-y-8">
                   {selectedMember?.email && (
                     <Link
@@ -222,7 +227,7 @@ export function TeamSlider() {
                   type="button"
                   onClick={() => api?.scrollNext()}
                   aria-label="Следующий"
-                  className="xs:w-44 bg-orange hover:bg-orange flex h-58 w-30 items-center justify-center transition"
+                  className="xs:w-44 sm:hidden bg-orange hover:bg-orange flex h-58 w-30 items-center justify-center transition"
                 >
                   <Image
                     className="xs:w-26 x:h-26 h-20 w-20"
@@ -237,37 +242,72 @@ export function TeamSlider() {
           </AnimatePresence>
         </div>
 
-        {thumbs.length > 0 && (
+        {total > 1 && (
           <div className="mt-auto hidden xl:block">
             <div className="overflow-hidden">
               <div className="flex gap-12">
-                {thumbs.map((idx) => {
-                  const member = teamMembers[idx];
-                  return (
-                    <button
-                      key={member.id}
-                      type="button"
-                      onClick={() => scrollTo(idx)}
-                      className={cn(
-                        "relative flex-[0_0_70%] sm:flex-[0_0_45%] lg:flex-[0_0_48%]",
-                        "rounded-16 overflow-hidden border transition"
-                      )}
-                    >
-                      <div className="relative h-[15rem] w-full">
+                {nextIdx !== null && (
+                  <div
+                    className={cn(
+                      "relative h-[15rem] flex-[0_0_70%] sm:flex-[0_0_45%] lg:flex-[0_0_48%]",
+                      "rounded-16 overflow-hidden"
+                    )}
+                  >
+                    <AnimatePresence initial={false}>
+                      <motion.button
+                        key={teamMembers[nextIdx].id}
+                        type="button"
+                        onClick={() => scrollTo(nextIdx)}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.4, ease: "easeOut" }}
+                        className="absolute inset-0 [will-change:opacity]"
+                      >
+                        <ImageWithSkeleton
+                          src={teamMembers[nextIdx].photo}
+                          alt=""
+                          sizes="(max-width: 1024px) 50vw, 240px"
+                          className="cursor-pointer object-cover"
+                          objectPosition={teamMembers[nextIdx].photoPosition ?? "50% 50%"}
+                        />
+                      </motion.button>
+                    </AnimatePresence>
+                  </div>
+                )}
+
+                {prevIdx !== null && (
+                  <div
+                    className={cn(
+                      "relative h-[15rem] flex-[0_0_70%] sm:flex-[0_0_45%] lg:flex-[0_0_48%]",
+                      "rounded-16 overflow-hidden"
+                    )}
+                  >
+                    <AnimatePresence initial={false}>
+                      <motion.button
+                        key={teamMembers[prevIdx].id}
+                        type="button"
+                        onClick={() => scrollTo(prevIdx)}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.4, ease: "easeOut" }}
+                        className="absolute inset-0 [will-change:opacity]"
+                      >
                         <Image
-                          src={member.photo}
+                          src={teamMembers[prevIdx].photo}
                           alt=""
                           fill
-                          className="object-cover"
+                          className="cursor-pointer object-cover"
                           style={{
-                            objectPosition: member.photoPosition ?? "50% 50%",
+                            objectPosition: teamMembers[prevIdx].photoPosition ?? "50% 50%",
                           }}
                           sizes="(max-width: 1024px) 50vw, 240px"
                         />
-                      </div>
-                    </button>
-                  );
-                })}
+                      </motion.button>
+                    </AnimatePresence>
+                  </div>
+                )}
               </div>
             </div>
           </div>

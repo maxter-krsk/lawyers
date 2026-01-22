@@ -268,6 +268,27 @@
   margin: 0 auto;
 }
 
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #076955 transparent;
+}
+
+/* Chrome / Edge / Safari */
+html::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #076955;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
 html body[data-scroll-locked] {
   overflow: visible !important;
   margin-right: 0 !important;

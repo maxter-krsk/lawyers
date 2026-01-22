@@ -5,8 +5,8 @@ import Burger from "./Burger";
 const nav: [string, string][] = [
   ["О компании", "/#about"],
   ["Команда", "/#team"],
-  ["Преимущества", "/#features"],
   ["Практики", "/#practices"],
+  ["Контакты", "/#contacts"],
 ];
 
 type HeaderProps = {
@@ -60,7 +60,7 @@ export default function Header({ variant }: HeaderProps) {
         </div>
 
         {/* LOGO */}
-        <div className="my-auto">
+        <div className="mt-auto">
           <Link href="/" aria-label="На главную" className="block">
             <Image
               className="hidden h-auto w-[19.188rem] xl:block"

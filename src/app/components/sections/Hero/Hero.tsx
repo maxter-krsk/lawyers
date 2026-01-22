@@ -2,6 +2,7 @@ import Image from "next/image";
 import { HeroSlider } from "./HeroSlider";
 import { Separator } from "@/lib/ui/separator";
 import { Square } from "@/lib/ui/square";
+import ImageWithSkeleton from "@/lib/ui/ImageWithSkeleton";
 
 const features = [
   {
@@ -66,13 +67,13 @@ export function Hero() {
               <HeroSlider />
             </div>
           </div>
-          <div className="rounded-6 sm:rounded-12 relative mt-34 mb-80 aspect-[1093/420] w-full overflow-hidden md:mt-14 sm:mb-90 lg:mt-70 lg:mb-110">
-            <Image
+          <div className="rounded-6 sm:rounded-12 relative mt-34 mb-80 aspect-[1093/420] w-full overflow-hidden sm:mb-90 md:mt-14 lg:mt-70 lg:mb-110">
+            <ImageWithSkeleton
               src="/images/hero/handshake.jpg"
               alt="Рукопожатие"
-              fill
-              className="object-cover"
               sizes="100vw"
+              className="object-cover"
+              priority
             />
           </div>
         </div>

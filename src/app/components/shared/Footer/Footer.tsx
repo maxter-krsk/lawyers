@@ -5,8 +5,8 @@ import DevelopedBy from "@/app/components/ui/DevelopedBy";
 const footerNav: [string, string][] = [
   ["О компании", "/#about"],
   ["Команда", "/#team"],
-  ["Преимущества", "/#features"],
   ["Практики", "/#practices"],
+  ["Контакты", "/#contacts"],
 ];
 
 const contacts = [
