@@ -48,14 +48,23 @@ export function HeroSlider() {
 
   return (
     <>
-      <Carousel className="w-full" setApi={setApi} plugins={[autoplay.current]} opts={{ loop: true }}>
-        <CarouselContent>
+      <Carousel
+        className="w-full"
+        setApi={setApi}
+        plugins={[autoplay.current]}
+        opts={{ loop: true }}
+      >
+        <CarouselContent className="items-stretch">
           {slides.map((s) => (
-            <CarouselItem key={s.id}>
+            <CarouselItem key={s.id} className="h-full">
               {/* Слайд */}
-              <div className="bg-green px-16 py-20 sm:p-28 w-full">
-                <p className="text-18 sm:text-24 md:text-36 text-center font-medium whitespace-pre-line break-words text-white uppercase">
-                  {s.title}
+              <div className="bg-green flex h-[4.813rem] w-full items-center justify-center p-26 md:h-[8.75rem] md:p-40 lg:p-28 xl:h-[9.125rem]">
+                <p className="text-20 md:text-24 xl:text-36 text-center leading-tight font-medium text-white uppercase select-none">
+                  {s.title.split("\n").map((line, i) => (
+                    <span key={i} className="desk:whitespace-nowrap block">
+                      {line}
+                    </span>
+                  ))}
                 </p>
               </div>
             </CarouselItem>
@@ -64,7 +73,7 @@ export function HeroSlider() {
       </Carousel>
 
       {/* Пагинация */}
-      <div className="mt-20 hidden w-full items-center justify-center gap-[0.25rem] sm:flex">
+      <div className="mt-20 hidden w-full items-center justify-center gap-[0.25rem] md:flex">
         {slides.map((_, i) => (
           <button
             key={i}

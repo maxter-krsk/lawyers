@@ -23,7 +23,6 @@
   --color-green: #076955;
   --color-orange: #EC6421;
   --color-main: #3C3C3B;
-  --color-softWhite: #F7F6F4;
   --color-grayLight: #B1B1B1;
   --color-grayDark: #868686;
 
@@ -241,9 +240,6 @@
 
   /* Скругления */
 
-
-  --radius-6: 0.375rem;
-  /* 6px */
   --radius-10: 0.625rem;
   /* 10px */
   --radius-12: 0.75rem;
@@ -272,11 +268,6 @@
   margin: 0 auto;
 }
 
-html,
-body {
-  scroll-behavior: smooth;
-}
-
 html body[data-scroll-locked] {
   overflow: visible !important;
   margin-right: 0 !important;
@@ -291,21 +282,6 @@ html body[data-scroll-locked] {
 
 .hover-link:hover {
   text-decoration-color: currentColor;
-}
-
-.custom-list li {
-  position: relative;
-  padding-left: 1rem;
-}
-
-.custom-list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.6em;
-  width: 0.375rem;
-  height: 0.375rem;
-  background-color: #EC6421;
 }
 
 @media (max-width: 768px) {

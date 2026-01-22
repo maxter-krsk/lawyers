@@ -42,8 +42,8 @@ export default function Header({ variant }: HeaderProps) {
 
   return (
     <header className="bg-softWhite sticky top-0 right-0 h-screen">
-      <div className="container flex h-full flex-col items-center py-20 md:items-start">
-        <nav className="hidden md:block">
+      <div className="xs:pr-16 flex h-full flex-col items-center py-20 pr-10 sm:pr-24 md:items-start md:pr-32">
+        <nav className="hidden xl:block">
           <ul className="text-18 flex flex-col space-y-10 uppercase">
             {nav.map(([label, href], index) => (
               <li key={href} className={index === 1 ? "mb-40" : undefined}>
@@ -55,7 +55,7 @@ export default function Header({ variant }: HeaderProps) {
           </ul>
         </nav>
 
-        <div className="w-full md:hidden">
+        <div className="w-full xl:hidden">
           <Burger className="w-full" />
         </div>
 
@@ -63,7 +63,7 @@ export default function Header({ variant }: HeaderProps) {
         <div className="my-auto">
           <Link href="/" aria-label="На главную" className="block">
             <Image
-              className="hidden h-auto w-[19.188rem] md:block"
+              className="hidden h-auto w-[19.188rem] xl:block"
               src="/icons/logos/logo-full.svg"
               alt="Логотип"
               width={307}
@@ -71,7 +71,7 @@ export default function Header({ variant }: HeaderProps) {
               priority
             />
             <Image
-              className="block h-auto w-[68px] md:hidden"
+              className="block h-auto w-[68px] xl:hidden"
               src="/icons/logos/logo-short.svg"
               alt="Логотип"
               width={68}
