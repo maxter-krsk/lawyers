@@ -27,7 +27,7 @@ export function PracticesAccordion({ items }: { items: PracticeItem[] }) {
                   <div className="flex h-full flex-col justify-between md:mr-10 lg:mr-0">
                     <h2 className="text-14 lg:text-16 pb-20 uppercase">{item.title}</h2>
 
-                    <span className="text-14 border-green w-fit border-b border-l pb-0 pl-6 font-extralight">
+                    <span className="text-14 border-green w-fit border-b border-l pb-4 pl-6 font-extralight tracking-[0.188rem]">
                       <span className="relative inline-block overflow-hidden leading-none">
                         <AnimatePresence initial={false} mode="wait">
                           {isOpen ? (
@@ -39,7 +39,7 @@ export function PracticesAccordion({ items }: { items: PracticeItem[] }) {
                               exit={{ opacity: 0, y: -6 }}
                               transition={{ duration: 0.2, ease: "easeOut" }}
                             >
-                              Скрыть
+                              скрыть
                             </motion.span>
                           ) : (
                             <motion.span
@@ -50,7 +50,7 @@ export function PracticesAccordion({ items }: { items: PracticeItem[] }) {
                               exit={{ opacity: 0, y: -6 }}
                               transition={{ duration: 0.2, ease: "easeOut" }}
                             >
-                              Подробнее
+                              подробнее
                             </motion.span>
                           )}
                         </AnimatePresence>
