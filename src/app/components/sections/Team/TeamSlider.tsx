@@ -128,7 +128,7 @@ export function TeamSlider() {
       </Carousel>
 
       <div className="desk:max-h-auto flex h-full min-h-full flex-col gap-16 md:max-h-[26rem]">
-        <div className="[&::-webkit-scrollbar-thumb]:rounded-12 [&::-webkit-scrollbar-thumb]:bg-main/30 hover:[&::-webkit-scrollbar-thumb]:bg-main/45 min-h-0 flex-1 overflow-x-hidden overflow-y-auto lg:[scrollbar-gutter:stable] [&::-webkit-scrollbar]:w-10 [&::-webkit-scrollbar-track]:bg-transparent">
+        <div className="[&::-webkit-scrollbar-thumb]:rounded-12 [&::-webkit-scrollbar-thumb]:bg-green hover:[&::-webkit-scrollbar-thumb]:bg-main/45 min-h-0 flex-1 overflow-x-hidden overflow-y-auto lg:[scrollbar-gutter:stable] [&::-webkit-scrollbar]:w-10 [&::-webkit-scrollbar-track]:bg-transparent">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={selectedMember.id}
