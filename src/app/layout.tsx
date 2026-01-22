@@ -68,11 +68,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="bg-softWhite" lang="ru">
+    <html lang="ru">
       <body
-        className={`${geologica.className} text-main min-h-screen overflow-x-hidden antialiased`}
+        className={`${geologica.className} bg-softWhite text-main min-h-screen overflow-x-hidden antialiased`}
       >
-        <div className="sm:hidden block">
+        <div className="block sm:hidden">
           <Header variant="top" />
         </div>
 
@@ -82,7 +82,7 @@ export default function RootLayout({
               <div className="flex-1">{children}</div>
             </main>
 
-            <aside className="sm:block hidden shrink-0">
+            <aside className="hidden shrink-0 sm:block">
               <Header variant="side" />
             </aside>
           </div>

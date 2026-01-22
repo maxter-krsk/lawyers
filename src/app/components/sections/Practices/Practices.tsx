@@ -161,7 +161,7 @@ export function Practices() {
                   className="w-full cursor-pointer text-left"
                 >
                   <div className="relative w-full py-10 sm:py-14">
-                    <div className="grid w-full grid-cols-[11rem_1fr_auto] items-start gap-10 md:grid-cols-[11rem_16.25rem_auto] lg:grid-cols-[11rem_16.25rem_1fr_auto]">
+                    <div className="xs:grid xs:grid-cols-[11rem_1fr_auto] flex w-full flex-col-reverse items-start gap-10 md:grid-cols-[11rem_16.25rem_auto] lg:grid-cols-[11rem_16.25rem_1fr_auto]">
                       <div className="flex h-full flex-col justify-between md:mr-10 lg:mr-0">
                         <h2 className="text-14 lg:text-16 pb-20 uppercase">{item.title}</h2>
 
@@ -198,7 +198,7 @@ export function Practices() {
 
                       <div className="flex shrink-0 lg:ml-auto lg:justify-center">
                         <div
-                          className={`rounded-6 xs:rounded-12 aspect-square w-[9.063rem] overflow-hidden transition-[width] duration-500 ${
+                          className={`rounded-6 sm:rounded-12 aspect-square w-[7.063rem] overflow-hidden transition-[width] duration-500 ${
                             isOpen
                               ? "sm:w-[11.875rem] md:w-[16.25rem] lg:w-[16.25rem]"
                               : "sm:w-[9.063rem] md:w-[9.063rem] lg:w-[7.813rem]"

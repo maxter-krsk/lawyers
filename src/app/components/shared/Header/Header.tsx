@@ -17,21 +17,23 @@ export default function Header({ variant }: HeaderProps) {
   if (variant === "top") {
     return (
       <header className="bg-softWhite">
-        <div className="relative container flex min-h-16 items-center justify-end py-14">
-          {/* Центр */}
-          <Link href="/" aria-label="На главную" className="absolute left-1/2 -translate-x-1/2">
-            <Image
-              src="/icons/logos/logo-short.svg"
-              alt="Логотип"
-              width={68}
-              height={46}
-              className="h-auto w-62"
-              priority
-            />
-          </Link>
+        <div className="container">
+          <div className="relative flex min-h-16 items-center justify-end py-14">
+            {/* Центр */}
+            <Link href="/" aria-label="На главную" className="absolute left-1/2 -translate-x-1/2">
+              <Image
+                src="/icons/logos/logo-short.svg"
+                alt="Логотип"
+                width={68}
+                height={46}
+                className="h-auto w-62"
+                priority
+              />
+            </Link>
 
-          <div className="w-42">
-            <Burger className="w-full" />
+            <div className="w-42">
+              <Burger className="w-full" />
+            </div>
           </div>
         </div>
       </header>
@@ -39,7 +41,7 @@ export default function Header({ variant }: HeaderProps) {
   }
 
   return (
-    <header className="sticky top-0 right-0 h-screen bg-softWhite">
+    <header className="bg-softWhite sticky top-0 right-0 h-screen">
       <div className="container flex h-full flex-col items-center py-20 md:items-start">
         <nav className="hidden md:block">
           <ul className="text-18 flex flex-col space-y-10 uppercase">
