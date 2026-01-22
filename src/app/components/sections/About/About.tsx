@@ -21,10 +21,10 @@ export function About() {
   return (
     <section id="about" className="mb-80 sm:mb-90 lg:mb-110">
       <div className="container">
-        <div className="mb-34 flex flex-col items-center text-center sm:flex-row sm:items-start sm:justify-between sm:text-left md:mb-24 lg:mb-40">
-          <Title className="mb-34 basis-1/2 whitespace-nowrap sm:mb-0">О нас</Title>
-          <div>
-            <h2 className="text-28 lg:text-46 mb-10 font-medium">
+        <div className="mb-34 flex flex-col items-center text-center sm:flex-row sm:items-start sm:justify-between sm:gap-90 sm:text-left md:mb-24 lg:mb-40">
+          <Title className="mb-34 shrink-0 sm:mb-0">О нас</Title>
+          <div className="max-w-[57.5rem]">
+            <h2 className="uppercase text-28 lg:text-46 mb-10 font-medium">
               Коллегия адвокатов «Щербаков, Степанова и партнёры»
             </h2>
             <p className="text-16 lg:text-18 font-light">
