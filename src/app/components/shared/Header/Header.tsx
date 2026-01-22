@@ -5,8 +5,8 @@ import Burger from "./Burger";
 const nav: [string, string][] = [
   ["О компании", "/#about"],
   ["Команда", "/#team"],
-  ["Преимущества", "/#features"],
   ["Практики", "/#practices"],
+  ["Контакты", "/#contacts"],
 ];
 
 type HeaderProps = {

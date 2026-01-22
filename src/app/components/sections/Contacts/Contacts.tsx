@@ -6,7 +6,7 @@ import { Separator } from "@/lib/ui/separator";
 
 export function Contacts() {
   return (
-    <section className="mb-80 sm:mb-90 lg:mb-110">
+    <section id="contacts" className="mb-80 sm:mb-90 lg:mb-110">
       <div className="container">
         <Title className="mb-34 justify-center sm:justify-start md:mb-24 lg:mb-40">Контакты</Title>
 
