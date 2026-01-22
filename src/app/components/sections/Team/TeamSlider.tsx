@@ -3,8 +3,9 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import ImageWithSkeleton from "@/lib/ui/ImageWithSkeleton";
+import { AnimatePresence, motion } from "framer-motion";
 import { teamMembers } from "./team.data";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/lib/ui/carousel";
 
@@ -75,13 +76,12 @@ export function TeamSlider() {
             >
               <div className="space-y-10 lg:space-y-20">
                 <div className="rounded-6 sm:rounded-12 relative aspect-[8/9] overflow-hidden">
-                  <Image
+                  <ImageWithSkeleton
                     src={member.photo}
                     alt={member.name}
-                    fill
-                    className="object-cover object-[50%_20%]"
                     priority={idx === 0}
                     sizes="(max-width: 1024px) 100vw, 55vw"
+                    className="object-cover object-[50%_20%]"
                   />
                 </div>
 
@@ -245,12 +245,11 @@ export function TeamSlider() {
           <div className="mt-auto hidden xl:block">
             <div className="overflow-hidden">
               <div className="flex gap-12">
-                {/* LEFT: NEXT (вперёд) */}
                 {nextIdx !== null && (
                   <div
                     className={cn(
                       "relative h-[15rem] flex-[0_0_70%] sm:flex-[0_0_45%] lg:flex-[0_0_48%]",
-                      "rounded-16 overflow-hidden border"
+                      "rounded-16 overflow-hidden"
                     )}
                   >
                     <AnimatePresence initial={false}>
@@ -264,27 +263,23 @@ export function TeamSlider() {
                         transition={{ duration: 0.4, ease: "easeOut" }}
                         className="absolute inset-0 [will-change:opacity]"
                       >
-                        <Image
+                        <ImageWithSkeleton
                           src={teamMembers[nextIdx].photo}
                           alt=""
-                          fill
-                          className="object-cover"
-                          style={{
-                            objectPosition: teamMembers[nextIdx].photoPosition ?? "50% 50%",
-                          }}
                           sizes="(max-width: 1024px) 50vw, 240px"
+                          className="object-cover"
+                          objectPosition={teamMembers[nextIdx].photoPosition ?? "50% 50%"}
                         />
                       </motion.button>
                     </AnimatePresence>
                   </div>
                 )}
 
-                {/* RIGHT: PREV (плавно) */}
                 {prevIdx !== null && (
                   <div
                     className={cn(
                       "relative h-[15rem] flex-[0_0_70%] sm:flex-[0_0_45%] lg:flex-[0_0_48%]",
-                      "rounded-16 overflow-hidden border"
+                      "rounded-16 overflow-hidden"
                     )}
                   >
                     <AnimatePresence initial={false}>
