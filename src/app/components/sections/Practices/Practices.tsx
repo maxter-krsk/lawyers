@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Title } from "../../ui/Title";
 import { Separator } from "@/lib/ui/separator";
 import { Accordion, AccordionItem } from "@/lib/ui/accordion";
+import ImageWithSkeleton from "@/lib/ui/ImageWithSkeleton";
 
 const practices = [
   {
@@ -204,12 +205,13 @@ export function Practices() {
                               : "sm:w-[9.063rem] md:w-[9.063rem] lg:w-[7.813rem]"
                           } `}
                         >
-                          <Image
-                            className={`h-full w-full object-cover transition-transform duration-500 ease-out ${isOpen ? "scale-[1.06] sm:scale-100" : "scale-100"} `}
+                          <ImageWithSkeleton
                             src={item.image}
                             alt={item.alt}
-                            width={260}
-                            height={260}
+                            className={`object-cover transition-transform duration-500 ease-out ${
+                              isOpen ? "scale-[1.06] sm:scale-100" : "scale-100"
+                            }`}
+                            sizes="(max-width: 640px) 113px, (max-width: 768px) 145px, 260px"
                           />
                         </div>
                       </div>
