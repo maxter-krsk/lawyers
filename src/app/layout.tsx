@@ -77,9 +77,9 @@ export default function RootLayout({
         </div>
 
         <div className="flex min-h-screen w-full flex-col">
-          <div className="flex w-full flex-1">
-            <main className="flex flex-1 flex-col">
-              <div className="flex-1">{children}</div>
+          <div className="flex w-full flex-1 flex-col sm:flex-row">
+            <main className="flex min-w-0 flex-1 flex-col">
+              <div className="min-w-0 flex-1">{children}</div>
             </main>
 
             <aside className="hidden shrink-0 sm:block">
