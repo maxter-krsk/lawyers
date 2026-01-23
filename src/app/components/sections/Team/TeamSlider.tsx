@@ -50,7 +50,7 @@ export function TeamSlider() {
   }, [api]);
 
   return (
-    <div className="grid grid-cols-1 gap-34 md:grid-cols-2 md:gap-20 lg:grid-cols-[1.15fr_.85fr]">
+    <div className="grid grid-cols-1 gap-34 md:grid-cols-2 md:items-start md:gap-20 lg:grid-cols-[1.15fr_.85fr]">
       <Carousel opts={{ loop: true, align: "start" }} setApi={setApi} className="overflow-hidden">
         <div className="flex justify-center gap-6 pb-14 sm:hidden">
           {dots.map((_, index) => (
@@ -127,8 +127,8 @@ export function TeamSlider() {
         </div>
       </Carousel>
 
-      <div className="desk:max-h-auto flex h-full min-h-full flex-col gap-16 md:max-h-[26rem]">
-        <div className="[&::-webkit-scrollbar-thumb]:rounded-12 [&::-webkit-scrollbar-thumb]:bg-green hover:[&::-webkit-scrollbar-thumb]:bg-main/45 min-h-0 flex-1 overflow-x-hidden overflow-y-auto lg:[scrollbar-gutter:stable] [&::-webkit-scrollbar]:w-10 [&::-webkit-scrollbar-track]:bg-transparent">
+      <div className="flex flex-col gap-16 md:max-h-[26rem] md:min-h-0">
+        <div className="[&::-webkit-scrollbar-thumb]:rounded-12 [&::-webkit-scrollbar-thumb]:bg-green hover:[&::-webkit-scrollbar-thumb]:bg-main/45 min-h-0 md:flex-1 overflow-visible overflow-x-hidden md:overflow-y-auto lg:[scrollbar-gutter:stable] [&::-webkit-scrollbar]:w-10 [&::-webkit-scrollbar-track]:bg-transparent">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={selectedMember.id}
@@ -227,7 +227,7 @@ export function TeamSlider() {
                   type="button"
                   onClick={() => api?.scrollNext()}
                   aria-label="Следующий"
-                  className="xs:w-44 sm:hidden bg-orange hover:bg-orange flex h-58 w-30 items-center justify-center transition"
+                  className="xs:w-44 bg-orange hover:bg-orange flex h-58 w-30 items-center justify-center transition sm:hidden"
                 >
                   <Image
                     className="xs:w-26 x:h-26 h-20 w-20"
