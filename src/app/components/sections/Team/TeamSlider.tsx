@@ -50,7 +50,7 @@ export function TeamSlider() {
   }, [api]);
 
   return (
-    <div className="grid grid-cols-1 gap-34 md:grid-cols-2 md:items-start md:gap-20 lg:grid-cols-[1.15fr_.85fr]">
+    <div className="grid grid-cols-1 gap-34 md:grid-cols-2 md:items-stretch md:gap-20 lg:grid-cols-[1.15fr_.85fr]">
       <Carousel opts={{ loop: true, align: "start" }} setApi={setApi} className="overflow-hidden">
         <div className="flex justify-center gap-6 pb-14 sm:hidden">
           {dots.map((_, index) => (
@@ -127,8 +127,8 @@ export function TeamSlider() {
         </div>
       </Carousel>
 
-      <div className="flex flex-col gap-16 md:max-h-[26rem] md:min-h-0">
-        <div className="[&::-webkit-scrollbar-thumb]:rounded-12 [&::-webkit-scrollbar-thumb]:bg-green hover:[&::-webkit-scrollbar-thumb]:bg-main/45 min-h-0 md:flex-1 overflow-visible overflow-x-hidden md:overflow-y-auto lg:[scrollbar-gutter:stable] [&::-webkit-scrollbar]:w-10 [&::-webkit-scrollbar-track]:bg-transparent">
+      <div className="grid gap-16 md:min-h-0 md:grid-rows-[1fr_auto] md:self-stretch">
+        <div className="[&::-webkit-scrollbar-thumb]:rounded-12 [&::-webkit-scrollbar-thumb]:bg-green hover:[&::-webkit-scrollbar-thumb]:bg-main/45 overflow-x-hidden overflow-y-auto h-full xl:h-[30rem] desk:h-[36.5rem] lg:[scrollbar-gutter:stable] [&::-webkit-scrollbar]:w-10 [&::-webkit-scrollbar-track]:bg-transparent">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={selectedMember.id}
@@ -243,7 +243,7 @@ export function TeamSlider() {
         </div>
 
         {total > 1 && (
-          <div className="mt-auto hidden xl:block">
+          <div className="hidden xl:block">
             <div className="overflow-hidden">
               <div className="flex gap-12">
                 {nextIdx !== null && (
