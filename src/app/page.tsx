@@ -1,3 +1,17 @@
+import { Hero } from "./components/sections/Hero/Hero";
+import { About } from "./components/sections/About/About";
+import { Practices } from "./components/sections/Practices/Practices";
+import { Team } from "./components/sections/Team/Team";
+import { Contacts } from "./components/sections/Contacts/Contacts";
+
 export default function Home() {
-  return <h1 className="text-center uppercase">Главная страница</h1>;
+  return (
+    <>
+      <Hero />
+      <About />
+      <Practices />
+      <Team />
+      <Contacts />
+    </>
+  );
 }
