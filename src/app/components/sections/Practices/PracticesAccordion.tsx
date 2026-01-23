@@ -23,17 +23,17 @@ export function PracticesAccordion({ items }: { items: PracticeItem[] }) {
               className="w-full cursor-pointer text-left"
             >
               <div className="relative w-full py-10 sm:py-14">
-                <div className="xs:grid xs:grid-cols-[11rem_1fr_auto] flex w-full flex-col-reverse items-start gap-10 md:grid-cols-[11rem_16.25rem_auto] lg:grid-cols-[11rem_16.25rem_1fr_auto]">
-                  <div className="flex h-full flex-col justify-between md:mr-10 lg:mr-0">
-                    <h2 className="text-14 lg:text-16 pb-20 uppercase">{item.title}</h2>
+                <div className="xs:grid xs:grid-cols-[11rem_1fr_auto] flex w-full flex-col-reverse items-stretch gap-10 md:grid-cols-[11rem_16.25rem_auto] lg:grid-cols-[11rem_16.25rem_1fr_auto]">
+                  <div className="flex h-full flex-col justify-between self-stretch md:mr-10 lg:mr-0">
+                    <h2 className="text-14 lg:text-16 font-light leading-[1.25] uppercase">{item.title}</h2>
 
                     <span className="text-14 border-green w-fit border-b border-l pb-4 pl-6 font-extralight tracking-[0.188rem]">
-                      <span className="relative inline-block overflow-hidden leading-none">
+                      <span className="relative inline-block h-[1.2em] overflow-hidden pb-[2px] align-middle leading-[1.2]">
                         <AnimatePresence initial={false} mode="wait">
                           {isOpen ? (
                             <motion.span
                               key="hide"
-                              className="block"
+                              className="inline-block"
                               initial={{ opacity: 0, y: 6 }}
                               animate={{ opacity: 1, y: 0 }}
                               exit={{ opacity: 0, y: -6 }}
@@ -58,7 +58,7 @@ export function PracticesAccordion({ items }: { items: PracticeItem[] }) {
                     </span>
                   </div>
 
-                  <div className="flex shrink-0 lg:ml-auto lg:justify-center">
+                  <div className="flex shrink-0 self-start lg:ml-auto lg:justify-center">
                     <div
                       className={`rounded-6 sm:rounded-12 relative aspect-square w-[7.063rem] overflow-hidden transition-[width] duration-500 ${
                         isOpen
