@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import YandexMetrika from "./components/analytics/YandexMetrika";
 import { geologica } from "@/app/components/ui/fonts";
 import "./globals.css";
 import Header from "@/app/components/shared/Header/Header";
@@ -13,14 +14,16 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://domain.ru"),
   alternates: { canonical: "/" },
 
-  title: "Название сайта",
-  description: "Описание сайта",
+  title: "Коллегия адвокатов Щербаков, Степанова и партнеры — Юридические решения",
+  description:
+    "Надежный партнер для собственников бизнеса и частных лиц в сложных правовых вопросах. От сопровождения сделок до защиты в суде. Работаем по всей России. Опыт 20 лет.",
 
   openGraph: {
-    title: "Название сайта для соц. сетей",
-    description: "Описание сайта для соц. сетей",
+    title: "Коллегия адвокатов Щербаков, Степанова и партнеры — Юридические решения",
+    description:
+      "Надежный партнер для собственников бизнеса и частных лиц в сложных правовых вопросах. От сопровождения сделок до защиты в суде. Работаем по всей России. Опыт 20 лет.",
     url: "https://domain.ru",
-    siteName: "Название сайта для соц. сетей",
+    siteName: "Коллегия адвокатов Щербаков, Степанова и партнеры — Юридические решения",
     images: [
       {
         url: "/og/og-img.jpg",
@@ -34,8 +37,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Название сайта для соц. сетей",
-    description: "Описание сайта для соц. сетей",
+    title: "Коллегия адвокатов Щербаков, Степанова и партнеры — Юридические решения",
+    description:
+      "Надежный партнер для собственников бизнеса и частных лиц в сложных правовых вопросах. От сопровождения сделок до защиты в суде. Работаем по всей России. Опыт 20 лет.",
     images: ["/og/og-img.jpg"],
   },
 
@@ -74,6 +78,7 @@ export default function RootLayout({
       <body
         className={`${geologica.className} bg-softWhite text-main min-h-screen overflow-x-hidden antialiased`}
       >
+        <YandexMetrika />
         <div className="block sm:hidden">
           <Header variant="top" />
         </div>
