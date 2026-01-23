@@ -1,22 +1,44 @@
 "use client";
 
-import Link from "next/link";
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/lib/ui/sheet";
+import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { Sheet, SheetContent, SheetTrigger } from "@/lib/ui/sheet";
 
-type BurgerProps = {
-  className?: string;
-};
+type BurgerProps = { className?: string };
 
 const nav: [string, string][] = [
-  ["О компании", "/#about"],
-  ["Команда", "/#team"],
-  ["Практики", "/#practices"],
-  ["Контакты", "/#contacts"],
+  ["О компании", "#about"],
+  ["Команда", "#team"],
+  ["Практики", "#practices"],
+  ["Контакты", "#contacts"],
 ];
 
+const CLOSE_MS = 300;
+
 export default function Burger({ className }: BurgerProps) {
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleNavClick = (hash: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setOpen(false);
+
+    if (pathname !== "/") {
+      router.push("/" + hash);
+      return;
+    }
+
+    window.setTimeout(() => {
+      const id = hash.slice(1);
+      const el = document.getElementById(id);
+      el?.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.history.pushState(null, "", hash);
+    }, CLOSE_MS);
+  };
+
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <button
           type="button"
@@ -42,15 +64,20 @@ export default function Burger({ className }: BurgerProps) {
 
       <SheetContent
         side="top"
+        onCloseAutoFocus={(e) => e.preventDefault()}
         className="bg-green ml-auto w-[15rem] border-none p-20 text-white [&_[data-radix-dialog-close]]:hidden"
       >
         <nav>
           <ul className="text-16 flex flex-col gap-14 uppercase">
-            {nav.map(([label, href]) => (
-              <li key={href}>
-                <Link href={href} className="hover-link text-white">
+            {nav.map(([label, hash]) => (
+              <li key={hash}>
+                <a
+                  href={"/" + hash}
+                  onClick={handleNavClick(hash)}
+                  className="hover-link text-white"
+                >
                   {label}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
