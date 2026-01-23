@@ -57,7 +57,6 @@ export function HeroSlider() {
         <CarouselContent className="items-stretch">
           {slides.map((s) => (
             <CarouselItem key={s.id} className="h-full">
-              {/* Слайд */}
               <div className="bg-green flex h-[4.813rem] w-full items-center justify-center p-26 md:h-[8.75rem] md:p-40 lg:p-28 xl:h-[9.125rem]">
                 <p className="text-20 md:text-24 xl:text-36 text-center leading-tight font-medium text-white uppercase select-none">
                   {s.title.split("\n").map((line, i) => (
@@ -72,8 +71,7 @@ export function HeroSlider() {
         </CarouselContent>
       </Carousel>
 
-      {/* Пагинация */}
-      <div className="mt-20 hidden w-full items-center justify-center gap-[0.25rem] md:flex">
+      <div className="mt-20 flex w-full items-center justify-center gap-[0.25rem]">
         {slides.map((_, i) => (
           <button
             key={i}
