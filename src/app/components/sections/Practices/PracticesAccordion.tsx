@@ -28,12 +28,12 @@ export function PracticesAccordion({ items }: { items: PracticeItem[] }) {
                     <h2 className="text-14 lg:text-16 pb-20 uppercase">{item.title}</h2>
 
                     <span className="text-14 border-green w-fit border-b border-l pb-4 pl-6 font-extralight tracking-[0.188rem]">
-                      <span className="relative inline-block overflow-hidden leading-none">
+                      <span className="relative inline-block overflow-hidden align-middle leading-[1.2] h-[1.2em] pb-[2px]">
                         <AnimatePresence initial={false} mode="wait">
                           {isOpen ? (
                             <motion.span
                               key="hide"
-                              className="block"
+                              className="inline-block"
                               initial={{ opacity: 0, y: 6 }}
                               animate={{ opacity: 1, y: 0 }}
                               exit={{ opacity: 0, y: -6 }}
