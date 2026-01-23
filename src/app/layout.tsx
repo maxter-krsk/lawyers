@@ -5,6 +5,7 @@ import Header from "@/app/components/shared/Header/Header";
 import Footer from "@/app/components/shared/Footer/Footer";
 import CookiesBanner from "@/app/components/ui/CookiesBanner";
 import ScrollTop from "@/app/components/ui/ScrollToTop";
+import { RevealProvider } from "@/app/components/providers/RevealProvider";
 
 // Мета-данные
 
@@ -69,6 +70,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
+      <RevealProvider />
       <body
         className={`${geologica.className} bg-softWhite text-main min-h-screen overflow-x-hidden antialiased`}
       >
