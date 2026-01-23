@@ -24,7 +24,7 @@ export function About() {
         <div className="mb-34 flex flex-col items-center text-center sm:flex-row sm:items-start sm:justify-between sm:gap-90 sm:text-left md:mb-24 lg:mb-40">
           <Title className="mb-34 shrink-0 sm:mb-0">О нас</Title>
           <div className="max-w-[57.5rem]">
-            <h2 className="uppercase text-28 lg:text-46 mb-10 font-medium">
+            <h2 className="text-26 lg:text-46 mb-10 font-medium uppercase">
               Коллегия адвокатов «Щербаков, Степанова и партнёры»
             </h2>
             <p className="text-16 lg:text-18 font-light">
@@ -36,7 +36,7 @@ export function About() {
         <ul className="grid grid-cols-1 gap-20 md:grid-cols-3">
           {about.map((item, index) => (
             <li key={index}>
-              <h3 className="text-16 lg:text-18 xs:mb-14 mb-10 font-light uppercase">
+              <h3 className="text-16 lg:text-18 mb-10 leading-none font-light uppercase sm:mb-14">
                 {item.title}
               </h3>
               <Separator className="bg-green xs:mb-14 mb-10 w-full" />
