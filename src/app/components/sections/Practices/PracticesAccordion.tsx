@@ -87,7 +87,7 @@ export function PracticesAccordion({ items }: { items: PracticeItem[] }) {
                     animate={{
                       opacity: isOpen ? 1 : 0,
                       y: isOpen ? 0 : 8,
-                      maxHeight: isOpen ? 1000 : 0,
+                      maxHeight: isOpen ? "62.5rem" : 0,
                     }}
                     transition={{ duration: 0.4, ease: "easeOut", delay: isOpen ? 0.08 : 0 }}
                     style={{ overflow: "hidden", pointerEvents: isOpen ? "auto" : "none" }}
@@ -102,7 +102,7 @@ export function PracticesAccordion({ items }: { items: PracticeItem[] }) {
                   animate={{
                     opacity: isOpen ? 1 : 0,
                     y: isOpen ? 0 : 8,
-                    maxHeight: isOpen ? 1000 : 0,
+                    maxHeight: isOpen ? "62.5rem" : "0rem",
                   }}
                   transition={{ duration: 0.4, ease: "easeOut", delay: isOpen ? 0.08 : 0 }}
                   style={{ overflow: "hidden", pointerEvents: isOpen ? "auto" : "none" }}
