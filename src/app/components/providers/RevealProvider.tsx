@@ -1,4 +1,3 @@
-// src/components/providers/RevealProvider.tsx
 "use client";
 
 import { useEffect } from "react";
