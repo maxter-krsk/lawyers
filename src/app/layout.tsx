@@ -11,8 +11,12 @@ import { RevealProvider } from "@/app/components/providers/RevealProvider";
 // Мета-данные
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://domain.ru"),
-  alternates: { canonical: "/" },
+  metadataBase: new URL("https://ssp24.ru"),
+  // alternates: { canonical: "/" },
+  robots: {
+    index: false,
+    follow: false,
+  },
 
   title: "Коллегия адвокатов Щербаков, Степанова и партнеры — Юридические решения",
   description:
@@ -22,7 +26,7 @@ export const metadata: Metadata = {
     title: "Коллегия адвокатов Щербаков, Степанова и партнеры — Юридические решения",
     description:
       "Надежный партнер для собственников бизнеса и частных лиц в сложных правовых вопросах. От сопровождения сделок до защиты в суде. Работаем по всей России. Опыт 20 лет.",
-    url: "https://domain.ru",
+    url: "https://ssp24.ru",
     siteName: "Коллегия адвокатов Щербаков, Степанова и партнеры — Юридические решения",
     images: [
       {
@@ -74,10 +78,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <RevealProvider />
       <body
         className={`${geologica.className} bg-softWhite text-main min-h-screen overflow-x-hidden antialiased`}
       >
+      <RevealProvider />
         <YandexMetrika />
         <div className="block sm:hidden">
           <Header variant="top" />
