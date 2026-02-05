@@ -81,28 +81,29 @@ export default function RootLayout({
       <body
         className={`${geologica.className} bg-softWhite text-main min-h-screen overflow-x-hidden antialiased`}
       >
-      <RevealProvider />
-        <YandexMetrika />
-        <div className="block sm:hidden">
-          <Header variant="top" />
-        </div>
-
-        <div className="flex min-h-screen w-full flex-col">
-          <div className="flex w-full flex-1 flex-col sm:flex-row">
-            <main className="flex min-w-0 flex-1 flex-col">
-              <div className="min-w-0 flex-1">{children}</div>
-            </main>
-
-            <aside className="hidden shrink-0 sm:block">
-              <Header variant="side" />
-            </aside>
+        <RevealProvider>
+          <YandexMetrika />
+          <div className="block sm:hidden">
+            <Header variant="top" />
           </div>
 
-          <Footer />
-        </div>
+          <div className="flex min-h-screen w-full flex-col">
+            <div className="flex w-full flex-1 flex-col sm:flex-row">
+              <main className="flex min-w-0 flex-1 flex-col">
+                <div className="min-w-0 flex-1">{children}</div>
+              </main>
 
-        <CookiesBanner />
-        <ScrollTop />
+              <aside className="hidden shrink-0 sm:block">
+                <Header variant="side" />
+              </aside>
+            </div>
+
+            <Footer />
+          </div>
+
+          <CookiesBanner />
+          <ScrollTop />
+        </RevealProvider>
       </body>
     </html>
   );
