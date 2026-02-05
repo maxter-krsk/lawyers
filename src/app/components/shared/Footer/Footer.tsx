@@ -40,8 +40,8 @@ const requisites = [
 ];
 
 const legalLinks: [string, string][] = [
-  ["Политика конфиденциальности и согласие на обработку персональных данных", "/privacy-policy#privacy"],
-  ["Политика использования файлов cookie", "/privacy-policy#cookies"],
+  ["Политика конфиденциальности и согласие на обработку персональных данных", "/privacy-policy"],
+  ["Политика использования файлов cookie", "/privacy-policy"],
 ];
 
 const year = new Date().getFullYear();

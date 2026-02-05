@@ -1,8 +1,8 @@
 export function initReveal() {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined") return () => {};
 
   const items = document.querySelectorAll<HTMLElement>("[data-reveal]");
-  if (!items.length) return;
+  if (!items.length) return () => {};
 
   const io = new IntersectionObserver(
     (entries) => {
@@ -20,4 +20,6 @@ export function initReveal() {
   );
 
   items.forEach((el) => io.observe(el));
+
+  return () => io.disconnect();
 }

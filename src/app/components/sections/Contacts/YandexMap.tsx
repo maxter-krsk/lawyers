@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Script from "next/script";
 import { Skeleton } from "@/lib/ui/skeleton";
 
@@ -16,6 +16,12 @@ const POINT: [number, number] = [56.009572, 92.814663];
 export function YandexMap() {
   const [scriptReady, setScriptReady] = useState(false);
   const [mapReady, setMapReady] = useState(false);
+  const mapRef = useRef<any>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.ymaps) setScriptReady(true);
+  }, []);
 
   useEffect(() => {
     if (!scriptReady) return;
@@ -34,6 +40,7 @@ export function YandexMap() {
         },
         { suppressMapOpenBlock: true }
       );
+      mapRef.current = map;
 
       const placemark = new window.ymaps.Placemark(
         POINT,
@@ -45,6 +52,13 @@ export function YandexMap() {
 
       setMapReady(true);
     });
+
+    return () => {
+      if (mapRef.current) {
+        mapRef.current.destroy();
+        mapRef.current = null;
+      }
+    };
   }, [scriptReady]);
 
   return (
@@ -52,7 +66,7 @@ export function YandexMap() {
       <Script
         src={`https://api-maps.yandex.ru/2.1/?apikey=${process.env.NEXT_PUBLIC_YANDEX_MAPS_API_KEY}&lang=ru_RU`}
         strategy="afterInteractive"
-        onLoad={() => setScriptReady(true)}
+        onReady={() => setScriptReady(true)}
       />
 
       <div className="rounded-6 xs:rounded-12 relative h-[25rem] w-full overflow-hidden">
