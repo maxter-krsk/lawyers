@@ -28,10 +28,8 @@ export default function CookiesBanner() {
       {visible && (
         <motion.div
           key="cookie-banner"
-          // появление снизу + лёгкая прозрачность
           initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          // закрытие вниз
           exit={{ y: 80, opacity: 0 }}
           transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
           style={{ willChange: "transform, opacity" }}
@@ -42,7 +40,7 @@ export default function CookiesBanner() {
               <p className="text-14 md:text-16 lg:text-18 max-w-[80%] font-light">
                 Продолжая просмотр сайта, вы соглашаетесь с использованием cookie в соответствии с
                 нашей{" "}
-                <Link href="/cookie-policy" className="hover-link font-medium">
+                <Link href="/privacy-policy" className="hover-link font-medium">
                   Политикой в отношении обработки cookie-файлов
                 </Link>
               </p>
